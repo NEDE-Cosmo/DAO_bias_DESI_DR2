@@ -1,0 +1,43 @@
+timing: True
+debug: True
+
+theory:
+  classy:
+    path: global
+    extra_args:
+      output: mPk
+      P_k_max_h/Mpc: 1.0
+      compute_damping_scale: "yes"
+    output_params: [z_d, rs_drag]
+
+likelihood:
+  DAO_bias_DESI_DR2:
+    python_path: /path/to/folder/with/likelihood/
+    mu_npts: 16
+    dump_theory_to: null
+
+params:
+  omega_b: 0.022377
+  omega_cdm: 0.12010
+  100*theta_s: 1.04110
+  ln10^{10}A_s: 3.0447
+  n_s: 0.9659
+  tau_reio: 0.0543
+  N_ur: 2.0328
+  N_ncdm: 1
+  m_ncdm: 0.06
+  T_ncdm: 0.71611
+
+  z_d:
+    derived: True
+  rs_drag:
+    derived: True
+
+  Drr: -0.3
+  Atilde: 0.2
+  hSigma0: 5.0
+  hSigmaD0: 5.0
+  hSigmaDsilk: 6.0
+
+sampler:
+  evaluate: {}
